@@ -1,0 +1,5 @@
+homepage: "https://www.across.it"
+documentation: "https://www.across.it"
+versions:
+  - sha:
+    changeNotes: Initial release.
