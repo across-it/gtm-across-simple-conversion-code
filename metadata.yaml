@@ -1,5 +1,5 @@
 homepage: "https://www.across.it"
 documentation: "https://www.across.it"
 versions:
-  - sha:
+  - sha: 2462b32861086aca6a87f9d2519d66f540bafebf
     changeNotes: Initial release.
