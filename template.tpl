@@ -35,6 +35,37 @@ ___TEMPLATE_PARAMETERS___
 
 [
   {
+    "type": "SELECT",
+    "name": "domain_name",
+    "displayName": "Domain name",
+    "selectItems": [
+      {
+        "value": "affiliate.across.it",
+        "displayValue": "affiliate.across.it"
+      },
+      {
+        "value": "cert.home4four.com",
+        "displayValue": "cert.home4four.com"
+      },
+      {
+        "value": "acrossbase.com",
+        "displayValue": "acrossbase.com"
+      },
+      {
+        "value": "notizieveloci.com",
+        "displayValue": "notizieveloci.com"
+      }
+    ],
+    "simpleValueType": true,
+    "help": "Domain name provided in setup phase by Across account",
+    "defaultValue": "affiliate.across.it",
+    "valueValidators": [
+      {
+        "type": "NON_EMPTY"
+      }
+    ]
+  },
+  {
     "type": "TEXT",
     "name": "campaign_id",
     "displayName": "Campaign ID",
@@ -165,10 +196,11 @@ const encodeUriComponent = require('encodeUriComponent');
 const sendPixel = require('sendPixel');
 
 //My pixel url template
-const baseUrlTemplate = 'https://affiliate.across.it/v2/az[action_number][campaign_id]/';
+const baseUrlTemplate = 'https://[domain_name]/v2/az[action_number][campaign_id]/';
 
 //Url specific customization
 let baseUrl = baseUrlTemplate;
+baseUrl = baseUrl.replace('[domain_name]', data.domain_name);
 baseUrl = baseUrl.replace('[action_number]', makeNumber(data.action_number));
 baseUrl = baseUrl.replace('[campaign_id]', makeNumber(data.campaign_id));
 if (data.order_id){
@@ -224,6 +256,18 @@ ___WEB_PERMISSIONS___
               {
                 "type": 1,
                 "string": "https://affiliate.across.it/*"
+              },
+              {
+                "type": 1,
+                "string": "https://cert.home4four.com/*"
+              },
+              {
+                "type": 1,
+                "string": "https://acrossbase.com/*"
+              },
+              {
+                "type": 1,
+                "string": "https://notizieveloci.com/*"
               }
             ]
           }
