@@ -1,5 +1,9 @@
 homepage: "https://www.across.it"
 documentation: "https://www.across.it"
 versions:
+  # Latest version
+  - sha: 12af16357d57251ba8bcb90f5f121e51cd8ae4ab
+    changeNotes: Tracking domain choice list.
+  # Older versions
   - sha: 2462b32861086aca6a87f9d2519d66f540bafebf
     changeNotes: Initial release.
